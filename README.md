@@ -39,3 +39,5 @@ libs used:
     npm i framer-motion
 - tailwindcss & postcss
     npm i -D tailwindcss@3 postcss autoprefixer
+- react-intersection-observer to know where the elements are in the viewport
+    npm i react-intersection-observer
