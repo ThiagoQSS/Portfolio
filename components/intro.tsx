@@ -10,20 +10,17 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hooks";
 export default function Intro() {
-
-  const { setActiveSection } = useActiveSectionContext();
-
-  const { inView, ref } = useInView({threshold: 0.8});
-  useEffect(() => {
-    if (inView) {
-      setActiveSection("Home");
-    }
-  }, [inView]);
+  const { ref } = useSectionInView("Home");
 
   return (
     //if everything belongs to the same semantic meaning, wrap them in a section
-    <section ref={ref} id="home" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-24">
+    <section
+      ref={ref}
+      id="home"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-24"
+    >
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
