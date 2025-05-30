@@ -9,10 +9,12 @@ import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Intro() {
   
   const { ref } = useSectionInView("Home");
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext()
 
   return (
     //if everything belongs to the same semantic meaning, wrap them in a section
@@ -86,12 +88,16 @@ export default function Intro() {
         <Link
           href="#contact"
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full justify-center w-1/2 self-center outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+          onClick={() => {
+            setActiveSection("Contact");
+            setTimeOfLastClick(Date.now());
+          }}
         >
           Contact me here.{" "}
           <BsArrowRight className="opacity-70 group-hover:translate-x-2 transition" />
         </Link>
         <a
-          className="group bg-white text-gray-900 px-7 py-3 flex items-center gap-2 rounded-full w-1/2 self-center justify-center outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-black/10"
+          className="group bg-white text-gray-900 px-7 py-3 flex items-center gap-2 rounded-full w-1/2 self-center justify-center outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
           href="/CV.pdf"
           download
         >
@@ -100,7 +106,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white px-4 py-3 flex text-gray-700 items-center gap-2 rounded-full justify-center self-center text-[1.35rem] cursor-pointer focus:scale-[1.15] hover:text-gray-950 hover:scale-110 active:scale-105 transition border border-black/10 outline-none"
+          className="bg-white px-4 py-3 flex text-gray-700 items-center gap-2 rounded-full justify-center self-center text-[1.35rem] cursor-pointer focus:scale-[1.15] hover:text-gray-950 hover:scale-110 active:scale-105 transition borderBlack outline-none"
           href="https://www.linkedin.com/in/thiago-quadros-silva-do-sacramento-413227319/"
           target="_blank"
         >
@@ -108,7 +114,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white px-4 py-3 flex text-gray-700 items-center gap-2 rounded-full justify-center self-center text-[1.35rem] focus:scale-110 hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer border border-black/10 outline-none"
+          className="bg-white px-4 py-3 flex text-gray-700 items-center gap-2 rounded-full justify-center self-center text-[1.35rem] focus:scale-110 hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack outline-none"
           href="https://github.com/ThiagoQSS"
           target="_blank"
         >
