@@ -31,10 +31,6 @@ export default function Contact() {
       <form
         className="mt-10 flex flex-col"
         action={async (formData) => {
-          console.log("Running on client:");
-          console.log("Form submitted:", formData.get("senderEmail"));
-          console.log("Form submitted:", formData.get("message"));
-
           await sendEmail(formData);
         }}
       >
@@ -42,7 +38,7 @@ export default function Contact() {
           type="email"
           name="senderEmail"
           required
-          maxLength={500}
+          maxLength={5000}
           placeholder="Your email"
           className="h-14 rounded-lg border borderBlack p-4"
         />
@@ -51,7 +47,7 @@ export default function Contact() {
           name="message"
           className="h-52 my-3 rounded-lg borderBlack p-4"
           required
-          maxLength={500}
+          maxLength={5000}
         />
         <button
           type="submit"
